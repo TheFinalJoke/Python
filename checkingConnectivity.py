@@ -7,7 +7,7 @@ if(len(sys.argv) != 2):
 
 input = str(sys.argv[1])
 
-networking = os.system("ping -c 1 " + input)
+networking = os.system("ping -c 1 > /dev/null " + input)
 
 if networking == 0:
     print("Can reach " + input)
