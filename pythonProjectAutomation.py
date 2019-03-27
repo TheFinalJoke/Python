@@ -51,7 +51,7 @@ os.system("echo '192.168.0.20:/nfsshare /nfsshare nfs defaults' >> /etc/fstab")
 #Installing JTR And Dependencies
 #Installing Rexgen
 print("STATUS: Installing Rexgen, JTR, GIT")
-os.system("apt update -y >> /var/log/JohnInstall.log")
+os.system("apt update -y")
 os.system("apt install build-essential libssl-dev yasm libgmp-dev libpcap-dev libnss3-dev -y")
 os.system("apt install libkrb5-dev pkg-config libopenmpi-dev openmpi-bin zlib1g-dev libbz2-dev -y")
 os.system("apt install flex cmake bison git -y")
