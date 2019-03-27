@@ -19,7 +19,7 @@ if len(sys.argv) != 2:
 #installing Sudo
 print("STATUS Installing Sudo")
 
-os.system("apt install sudo -y >> /var/log/JohnInstall.log")
+os.system("apt install sudo -y")
 
 #Creating user Master
 print("STATUS: Creating User Master")
@@ -39,11 +39,11 @@ os.system('echo "export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/
 
 #Installing net-tools
 print("STATUS: Install Net-tools")
-os.system("apt install net-tools -y >> /var/log/JohnInstall.log")
+os.system("apt install net-tools -y")
 
 #Installing NFS
 print("STATUS: Installing NFS and making NFS Directory")
-os.system("apt install nfs-common -y >> /var/log/JohnInstall.log")
+os.system("apt install nfs-common -y")
 os.system("mkdir /nfsshare")
 os.system("chmod 777 /nfsshare")
 os.system("echo '192.168.0.20:/nfsshare /nfsshare nfs defaults' >> /etc/fstab")
@@ -52,25 +52,25 @@ os.system("echo '192.168.0.20:/nfsshare /nfsshare nfs defaults' >> /etc/fstab")
 #Installing Rexgen
 print("STATUS: Installing Rexgen, JTR, GIT")
 os.system("apt update -y >> /var/log/JohnInstall.log")
-os.system("apt install build-essential libssl-dev yasm libgmp-dev libpcap-dev libnss3-dev -y >> /var/log/JohnInstall.log")
-os.system("apt install libkrb5-dev pkg-config libopenmpi-dev openmpi-bin zlib1g-dev libbz2-dev -y >> /var/log/JohnInstall.log")
-os.system("apt install flex cmake bison git -y >> /var/log/JohnInstall.log")
+os.system("apt install build-essential libssl-dev yasm libgmp-dev libpcap-dev libnss3-dev -y")
+os.system("apt install libkrb5-dev pkg-config libopenmpi-dev openmpi-bin zlib1g-dev libbz2-dev -y")
+os.system("apt install flex cmake bison git -y")
 
 print("STATUS: Installing Rexgen")
 os.chdir("/usr/local")
-os.system("git clone https://github.com/teeshop/rexgen.git >> /var/log/JohnInstall.log")
+os.system("git clone https://github.com/teeshop/rexgen.git")
 os.chdir("/usr/local/rexgen")
-os.system("./install.sh >> /var/log/JohnInstall.log")
-os.system("ldconfig >> /var/log/JohnInstall.log")
+os.system("./install.sh")
+os.system("ldconfig")
 
 #Installing JTR
 print("STATUS: Installing JTR")
 os.chdir("/usr/local")
-os.system("git clone https://github.com/magnumripper/JohnTheRipper.git >> /var/log/JohnInstall.log")
+os.system("git clone https://github.com/magnumripper/JohnTheRipper.git")
 os.system("chmod 777 -R /usr/local/JohnTheRipper")
 os.chdir("/usr/local/JohnTheRipper/src")
-os.system("./configure --enable-mpi >> /var/log/JohnInstall.log")
-os.system("make -s clean && make -sj4 >> /var/log/JohnInstall.log")
+os.system("./configure --enable-mpi")
+os.system("make -s clean && make -sj4")
 os.chdir("/usr/local/JohnTheRipper/run/")
 os.system("./john --test")
 exit(0)
