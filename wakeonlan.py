@@ -1,5 +1,5 @@
 import sys, os
-from wakeonlan import send_magic_packet
+import wakeonlan
 
 def check_host(host):
     pinganswer = os.system("ping -c 1 > /dev/null " + host)
@@ -10,4 +10,4 @@ def check_host(host):
 
 
 if check_host("1.1.1.1") == True:
-    send_magic_packet('B8:27:EB:E9:BB:9F')
+    
