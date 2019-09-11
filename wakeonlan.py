@@ -1,5 +1,7 @@
-import sys, os
-import wakeonlan
+import os
+import dracclient
+
+client = dracclient.client.DRACClient('idrac610.homelab', 'root', 'Annkz+319331', port=443)
 
 def check_host(host):
     pinganswer = os.system("ping -c 1 > /dev/null " + host)
@@ -10,4 +12,5 @@ def check_host(host):
 
 
 if check_host("1.1.1.1") == True:
-    
+    print(client.get_power_state())
+
