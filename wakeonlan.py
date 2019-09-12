@@ -1,6 +1,8 @@
 import os
-import dracclient
-client = dracclient.wsman.Client(idrac610.homelab,root,Annkz+319331,port=443)
+from dracclient import client
+
+six_ten = "10.0.14.100"
+client = client.DRACClient(six_ten, 'root', 'Annkz+319331', port=443)
 
 
 def check_host(host):
