@@ -10,7 +10,7 @@ client = client.DRACClient(six_ten, 'root', 'Annkz+319331')
 
 def check_host(host):
     args = ["ping" , "-c 1", host]
-    pinganswer = subprocess.run(args)
+    pinganswer = subprocess.run(args, strout=devnull)
     print(pinganswer.returncode)
     #if pinganswer != 0:
     #    print(pinganswer)
