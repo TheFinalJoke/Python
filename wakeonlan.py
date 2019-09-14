@@ -8,10 +8,10 @@ import datetime
 urllib3.disable_warnings()
 
 logging.basicConfig()
-six_ten = '10.0.14.200'
-seven_ten = '10.0.14.210'
-sixten = client.DRACClient(six_ten, 'root', 'Annkz+319331')
-seventen = client.DRACClient(seven_ten, 'root', 'Annkz+319331')
+six_ten = 'ip'
+seven_ten = 'ip'
+sixten = client.DRACClient(six_ten,'ruser','password')
+seventen = client.DRACClient(seven_ten, 'user', 'password')
 
 def check_server(server):
     test = server.get_power_state()
