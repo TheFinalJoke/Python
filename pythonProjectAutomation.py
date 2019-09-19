@@ -2,23 +2,24 @@
 
 import os
 import sys
+#import apt
 
 userID = os.geteuid()
 #Checking if user is root
 if userID != 0:
     print("Only root can execute")
     print("Exiting Script...")
-    exit(1)
+    sys.exit(1)
 #Checking if has only one argument
 if len(sys.argv) != 2:
     print("This Script only accepts one argument, The username of the node")
     print("Example: python pythonProjectAutomation.py workernodeN")
     print("Exiting Script...")
-    exit(1)
+    sys.exit(1)
 
 #installing Sudo
-print("STATUS Installing Sudo")
-
+print("Checking if Sudo is installed ")
+#get python project
 os.system("apt install sudo -y")
 
 #Creating user Master
